@@ -7,3 +7,41 @@ Then I would see the string:
 Michele is name My
 
 shown back to me.
+
+-------------------------------------------------------
+----------------------SOLUTION-------------------------
+-------------------------------------------------------
+#variables declaration
+
+txt_in = []
+txt_out = []
+
+#function declaration
+def split_sentence(txt_i):
+	word = ''
+	txt_o = []
+	for i in range(len(txt_i)):
+		if(txt_i[i] != ' '):
+			word = word + txt_i[i]
+		else:
+			txt_o.append(word)
+			word = ''
+	txt_o.append(word)
+	word = ''
+
+	return txt_o
+
+def sort_sentence(txt_o):
+	for i in range(int(len(txt_o)/2)):
+		word = ''
+		word = txt_o[i]
+		txt_out[i] = txt_o[len(txt_out)-i-1]
+		txt_out[len(txt_o)-i-1] = word
+		word = ''
+	return txt_o
+		
+#MAIN program
+txt_in = input('introduce the sentence you want to transform: ')
+txt_out = split_sentence(txt_in)
+txt_out = sort_sentence(txt_out)
+print(txt_out)
